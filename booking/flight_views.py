@@ -86,11 +86,11 @@ def flights(request):
 
     if request.method=="GET":
         nav=navbar.objects.all()
-        ad=requests.get(settings.API_URL+"/flight_home/")
-        res=ad.json()
+        #ad=requests.get(settings.API_URL+"/flight_home/")
+        res=flights_offercards.objects.all()#ad.json()
         k3 = flightfaqs.objects.all()
-        wc = requests.get(settings.API_URL+"/why_choose_lc/")
-        wcu = wc.json()
+        #wc = requests.get(settings.API_URL+"/why_choose_lc/")
+        wcu =why_choose.objects.all() #wc.json()
         return render(request,"flight_templates/c.html",{'nav':nav,'res':res,'k3':k3,'wcu':wcu,'k':k})
 
 
